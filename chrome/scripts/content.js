@@ -322,6 +322,7 @@ function getPatternsResults() {
         // The total count of detected elements that represent patterns.
         "count": 0,
     }
+    
     // Iterate over all patterns in the `patternConfig`.
     for (const pattern of constants.patternConfig.patterns) {
         // Array to collect all visible elements to the pattern.
@@ -441,3 +442,5 @@ function showElement(phid) {
     // Add the shadow element to the DOM.
     document.body.appendChild(highlightShadowElem);
 }
+ 
+ 

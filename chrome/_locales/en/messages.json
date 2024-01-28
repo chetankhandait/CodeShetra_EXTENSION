@@ -66,7 +66,7 @@
     "description": "Name of the countdown pattern."
   },
   "patternCountdown_infoUrl": {
-    "message": "https://dapde.de/en/dark-patterns-en/types-and-examples-en/druck2-en/",
+    "message": "https://dbph-website.vercel.app/",
     "description": "URL to the explanation of the countdown pattern on the dapde.de website."
   },
   "patternCountdown_info": {
@@ -78,19 +78,58 @@
     "description": "Name of the scarcity pattern."
   },
   "patternScarcity_infoUrl": {
-    "message": "https://dapde.de/en/dark-patterns-en/types-and-examples-en/druck2-en/",
+    "message": "https://dbph-website.vercel.app/",
     "description": "URL to the explanation of the scarcity pattern on the dapde.de website."
   },
   "patternScarcity_info": {
     "message": "The Scarcity Pattern induces (truthfully or falsely) the impression that goods or services are only available in limited numbers. Scarcity Patterns are also used in versions where the alleged scarcity is simply invented or where it is not made clear whether the limited availability relates to the product as a whole or only to the contingent of the portal visited.",
     "description": "Brief explanation of the scarcity Pattern."
   },
+
+  "patternFalseUrgency_name": {
+    "message": "False Urgency",
+    "description": "Name of the false urgency pattern."
+  },
+  "patternFalseUrgency_infoUrl": {
+    "message": "https://dbph-website.vercel.app/",
+    "description": "URL to the explanation of the false urgency pattern on the dapde.de website."
+  },
+  "patternFalseUrgency_info": {
+    "message": "The False Urgency pattern creates a sense of urgency by providing misleading information about limited-time offers or impending deadlines. This tactic aims to pressure users into making quick decisions without proper consideration.",
+    "description": "Brief explanation of the false urgency pattern."
+  },
+  "patternSubscriptionTrap_name": {
+    "message": "Subscription Trap",
+    "description": "Name of the subscription trap pattern."
+},
+"patternSubscriptionTrap_infoUrl": {
+    "message": "https://dbph-website.vercel.app/",
+    "description": "URL to the explanation of the subscription trap pattern on the dapde.de website."
+},
+"patternSubscriptionTrap_info": {
+    "message": "The Subscription Trap pattern lures users in with free trials but automatically renews subscriptions at a cost. It often involves unclear terms and conditions, making it difficult for users to cancel or opt-out of the renewal.",
+    "description": "Brief explanation of the subscription trap pattern."
+},
+
+"patternDisguisedAd_name": {
+  "message": "Disguised Ad",
+  "description": "Name of the disguised ad pattern."
+},
+"patternDisguisedAd_infoUrl": {
+  "message": "https://dbph-website.vercel.app/",
+  "description": "URL to the explanation of the disguised ad pattern on the dapde.de website."
+},
+"patternDisguisedAd_info": {
+  "message": "The Disguised Ad pattern presents promotional content in a way that resembles genuine website features, making it difficult for users to distinguish between ads and actual content. It aims to deceive users into interacting with the ad, thinking it's part of the regular content.",
+  "description": "Brief explanation of the disguised ad pattern."
+},
+
   "patternSocialProof_name": {
     "message": "Social Proof",
     "description": "Name of the social proof pattern."
   },
   "patternSocialProof_infoUrl": {
-    "message": "https://dapde.de/en/dark-patterns-en/types-and-examples-en/druck2-en/",
+    "message": "https://dbph-website.vercel.app/",
     "description": "URL to the explanation of the social proof pattern on the dapde.de website."
   },
   "patternSocialProof_info": {
@@ -102,12 +141,24 @@
     "description": "Name of the forced continuity pattern."
   },
   "patternForcedContinuity_infoUrl": {
-    "message": "https://dapde.de/en/dark-patterns-en/types-and-examples-en/operativer-zwang2-en/",
+    "message": "https://dbph-website.vercel.app/",
     "description": "URL to the explanation of the forced continuity pattern on the dapde.de website."
   },
   "patternForcedContinuity_info": {
     "message": "The Forced Continuity pattern automatically renews free or low-cost trial subscriptions - but for a fee or at a higher price. The design trick is that the order form visually suggests that there is no charge and conceals the (automatic) follow-up costs.",
     "description": "Brief explanation of the forced continuity Pattern."
+  },
+  "patternBaitAndSwitch_name": {
+    "message": "Bait and Switch",
+    "description": "Name of the bait-and-switch pattern."
+  },
+  "patternBaitAndSwitch_infoUrl": {
+    "message": "https://dbph-website.vercel.app/",
+    "description": "URL to the explanation of the bait-and-switch pattern on the dapde.de website."
+  },
+  "patternBaitAndSwitch_info": {
+    "message": "The Bait and Switch pattern involves presenting an enticing offer to the user, but later substituting it with a less favorable one. This technique is often used to mislead and manipulate user behavior.",
+    "description": "Brief explanation of the bait-and-switch pattern."
   },
   "showPatternState": {
     "message": "$CURRENT$ of $TOTAL$",
@@ -117,6 +168,7 @@
         "content": "$1",
         "example": "1"
       },
+      
       "total": {
         "content": "$2",
         "example": "4"

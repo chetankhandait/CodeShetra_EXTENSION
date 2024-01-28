@@ -517,7 +517,7 @@ export class ShowPatternButtons extends LitElement {
         // Send a message to the content script to show the element with the ID of `_currentPatternId`.
         await brw.tabs.sendMessage((await getCurrentTab()).id, { "showElement": this._currentPatternId });
     }
-
+         
     /**
      * Function to show the next pattern element.
      * Used as a click event handler.
@@ -603,8 +603,12 @@ export class ShowPatternButtons extends LitElement {
         return html`
         <div>
             <h2>${brw.i18n.getMessage("headingShowPattern")}</h2>
-            <span class="button" @click=${this.showPreviousPattern}>⏮️</span>
-            <span>${brw.i18n.getMessage("showPatternState", [this.getCurrentPatternNumber(), this.results.countVisible.toString()])}</span>
+            <span class="button" @click=${this.showPreviousPattern}>
+            ⏮️
+            </span>
+            <span>
+            ${brw.i18n.getMessage("showPatternState", [this.getCurrentPatternNumber(), this.results.countVisible.toString()])}
+            </span>
             <span class="button" @click=${this.showNextPattern}>⏭️</span>
             ${this.getCurrentPatternText()}
         </div>
@@ -638,15 +642,11 @@ export class SupportedPatternsList extends LitElement {
     render() {
         return html`
         <div>
-            <h2>${brw.i18n.getMessage("headingSupportedPatterns")}</h2>
+
             <ul>
                 ${constants.patternConfig.patterns.map((pattern) =>
             html`
-                    <li title="${pattern.info}">
-                        <a href="${pattern.infoUrl}" target="_blank">
-                            ${pattern.name} (${pattern.languages.map(l => l.toUpperCase()).join(", ")})
-                        </a>
-                    </li>`
+                    `
         )}
             </ul>
         </div>
@@ -678,7 +678,7 @@ export class PopupFooter extends LitElement {
     render() {
         return html`
         <div>
-            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://dapde.de/" target="_blank">dapde.de</a>.
+            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://yatrav-1.vercel.app/" target="_blank">CodeHustlerz</a>.
         </div>
       `;
     }

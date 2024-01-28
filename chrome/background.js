@@ -5,6 +5,15 @@
  */
 const brw = chrome;
 
+ 
+ 
+
+
+
+
+
+
+
 /**
  * The prefix for the keys in the session storage under which the activation state of the tabs is stored.
  * @constant
@@ -181,7 +190,7 @@ let icons_default = brw.runtime.getManifest().icons;
  * @type {Object.<number, string>}
  */
 let icons_disabled = {};
-
+    
 // Generate the paths to the gray version of the icon using the paths of the default icon.
 for (let resolution in icons_default) {
     icons_disabled[resolution] = `${icons_default[resolution].slice(0, -4)}_grey.png`;
@@ -190,7 +199,10 @@ for (let resolution in icons_default) {
 // Add an event handler that processes updates from tabs.
 // With this event can be used to capture changes to the URL.
 // This allows to detect whether the extension should be enabled in a tab or not.
+let URlforSite
 brw.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+     URlforSite = tab.url.toLowerCase();
+     console.log(URlforSite)
     // If the tab contains a web page loaded with HTTP(S), the default icon should be displayed.
     // Otherwise the content script is not enabled and therefore the extension is disabled.
     // In this case, a gray version of the icon should be displayed.
@@ -215,23 +227,68 @@ brw.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
  * @param {(number|"")} count The amount of detected pattern elements.
  * @param {number} tabId The ID of the tab in which the count should be displayed on the icon.
  */
-function displayPatternCount(count, tabId) {
-    // Set the text on the icon (badge) of the specified tab to the count passed.
-    brw.action.setBadgeText({
-        tabId: tabId,
-        text: "" + count
-    });
 
-    // Set the background color of the icon text to red as default [r, g, b, alpha].
-    let bgColor = [255, 0, 0, 255];
-    // If no patterns were detected, change the background color to green.
-    if (count == 0) {
-        // // Set the background color of the icon text to green.
-        bgColor = [0, 255, 0, 255];
+let count=0;
+function displayPatternCount(newCount, tabId) {
+    // Check if the new count is greater than the existing count
+    if (newCount > count) {
+        // Set the text on the icon (badge) of the specified tab to the new count.
+        brw.action.setBadgeText({
+            tabId: tabId,
+            text: "" + newCount
+        });
+
+        // Set the background color of the icon text to red as default [r, g, b, alpha].
+        let bgColor = [255, 0, 0, 255];
+        // If no patterns were detected, change the background color to green.
+        if (newCount == 0) {
+            // Set the background color of the icon text to green.
+            bgColor = [0, 255, 0, 255];
+        }
+        // Set the background color for the icon text of the specified tab.
+        brw.action.setBadgeBackgroundColor({
+            tabId: tabId,
+            color: bgColor
+        });
+
+        const username = "chetan";
+
+        // Save pattern count to MongoDB and wait for completion
+        savePatternCountToMongo(URlforSite, username, newCount)
+            .then(() => {
+                console.log('Pattern count processing complete');
+                // Update the local count only if the save is successful
+                count = newCount;
+            })
+            .catch((error) => {
+                console.error('Error saving pattern count to MongoDB:', error);
+            });
     }
-    // Set the background color for the icon text of the specified tab.
-    brw.action.setBadgeBackgroundColor({
-        tabId: tabId,
-        color: bgColor
-    });
 }
+
+// Function to save pattern count to MongoDB via HTTP request
+async function savePatternCountToMongo(url,username, count) {
+    try {
+      // Create a new PatternCount document
+    //   const patternCount = new PatternCount({ tabId, count, });
+  
+      // Send an HTTP POST request to your server's endpoint
+      const response = await fetch('https://dbph-server2.onrender.com/dashboard/sendweburls', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({url,username,count}),
+      });
+  
+      // Check if the request was successful
+      if (response.ok) {
+        console.log('Pattern count saved to MongoDB via HTTP request');
+      } else {
+        console.error('Failed to save pattern count to MongoDB:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending HTTP request to save pattern count:', error);
+    }
+  }
+  
