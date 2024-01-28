@@ -678,7 +678,7 @@ export class PopupFooter extends LitElement {
     render() {
         return html`
         <div>
-            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://yatrav-1.vercel.app/" target="_blank">CodeHustlerz</a>.
+            ${brw.i18n.getMessage("textMoreInformation")}: <a href="https://dbph-website.vercel.app/" target="_blank">CodeHustlerz</a>.
         </div>
       `;
     }
