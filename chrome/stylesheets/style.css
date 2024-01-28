@@ -20,4 +20,8 @@
     }
 }
 
- 
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&family=Inter:wght@300&display=swap');
+
+ *{
+    font-family: 'Bai Jamjuree', sans-serif;
+ }
