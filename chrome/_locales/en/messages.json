@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Pattern Highlighter",
+    "message": "Pattern Detector",
     "description": "The name of the extension."
   },
   "extDescription": {
@@ -41,8 +41,13 @@
   },
   "textMoreInformation": {
     "message": "More information about Dark Patterns",
-    "description": "Text in the footer preceding the link to the dapde.de website."
+    "description": "Text in the footer preceding the link to the   website."
   },
+  "reportSection": {
+    "message": "More information about Dark Patterns",
+    "description": "Text in the footer preceding the link to the   website."
+  },
+
   "infoExtensionStarted": {
     "message": "Pattern Highlighter started.",
     "description": "Message in the console when the pattern highlighter was started on a page."

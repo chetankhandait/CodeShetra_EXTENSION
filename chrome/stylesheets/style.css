@@ -1,9 +1,9 @@
-.__ph__pattern-detected {
+.d_pattern-detected {
     /** background-color: red !important; **/
     border: 2px solid black !important;
 }
 
-.__ph__current-pattern {
+.d_current-pattern {
     z-index: 10000 !important;
     box-shadow: 0 0 120px 150px red;
     animation: __ph__highlight 6s;
@@ -25,3 +25,6 @@
  *{
     font-family: 'Bai Jamjuree', sans-serif;
  }
+
+
+ 

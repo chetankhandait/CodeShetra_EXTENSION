@@ -68,7 +68,6 @@ export const patternsListStyles = css`
     }
 `;
 
-// On/Off Flipswitch from https://proto.io/freebies/onoff/
 export const onOffSwitchStyles = css`
     div {
         position: relative;
