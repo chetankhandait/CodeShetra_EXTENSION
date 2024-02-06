@@ -1,8 +1,6 @@
-// Import the required components from the Lit Library 
 import { css, unsafeCSS } from '../scripts/lit/lit-core.min.js';
 
 /**
- * The object to access the API functions of the browser.
  * @constant
  * @type {{runtime: object, tabs: object, i18n: object}} BrowserAPI
  */

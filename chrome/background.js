@@ -5,15 +5,6 @@
  */
 const brw = chrome;
 
- 
- 
-
-
-
-
-
-
-
 /**
  * The prefix for the keys in the session storage under which the activation state of the tabs is stored.
  * @constant
